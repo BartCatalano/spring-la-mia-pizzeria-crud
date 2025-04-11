@@ -52,6 +52,15 @@ public class PizzaController {
         model.addAttribute("titolo", "Pizza " + id + " non trovata");
         return "dettaglio";
     }
+
+    @GetMapping("/search")
+    public String searchByName(@RequestParam(name="name") String name, Model model) {
+        List<Pizza> pizze = repository.findByNameContaining(name);
+        model.addAttribute("pizze" , pizze);
+        return "IndexPizze";
+        
+    }
+    
  }
     
     
