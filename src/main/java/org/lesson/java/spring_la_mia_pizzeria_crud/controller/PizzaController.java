@@ -12,6 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
+
+
 
 
 
@@ -29,10 +34,29 @@ public class PizzaController {
         
         return "IndexPizze";
     }
+
+
+    @GetMapping("/{id}")
+    public String dettaglioPizza(Model model, @PathVariable("id") int id) {
+        // prendo tutte le pizze e le faccio diventare una lista
+        List<Pizza> pizze = repository.findAll();
+        // faccio un ciclo for su tutta la lista
+        for (Pizza pizza : pizze) {
+            // faccio un if che mi controlla gli id, quando trovo quello corrispondente allora accedo
+            if (pizza.getId() == id) {
+                // al model aggiungo tutta la pizza con tutte le info
+                model.addAttribute("pizza", pizza);  // Aggiungi l'intero oggetto pizza
+                return "dettaglio";
+            }
+        }
+        model.addAttribute("titolo", "Pizza " + id + " non trovata");
+        return "dettaglio";
+    }
+ }
     
     
     
     
-}
+
 
 
