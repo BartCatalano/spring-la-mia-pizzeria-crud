@@ -60,6 +60,15 @@ public class PizzaController {
         return "IndexPizze";
         
     }
+
+    // creo il get e il post per il form di creazione
+
+    @GetMapping("/create")
+    public String create(Model model) {
+        model.addAttribute("pizza", new Pizza());
+        return "create";
+    }
+    
     
  }
     

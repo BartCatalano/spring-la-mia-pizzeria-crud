@@ -28,6 +28,8 @@ public class Pizza {
     @NotBlank(message = "inserire prezzo della pizza")
     private BigDecimal prezzo; 
 
+// creo getter e setter
+
 
     public Integer getId() {
         return this.id;
