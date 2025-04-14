@@ -35,7 +35,11 @@
                             Prezzo: <span th:text="${pizza.prezzo}"></span>
                         </p>
                         <!-- Bottone per aggiungere la pizza al carrello -->
-                        <a class="btn btn-primary" th:href="@{'/pizze/' + ${pizza.id}}" th:text="dettaglio"></a>
+                         <div class="row ml-2">
+                        <a class="btn btn-primary btn-sm" th:href="@{'/pizze/' + ${pizza.id}}" th:text="dettaglio"></a>
+                        <form action="#" th:action="@{pizze/delete/{id}(id=${pizza.id})}" method="post">
+                            <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                        </form></div>
                     </div>
                 </div>
             </div>
