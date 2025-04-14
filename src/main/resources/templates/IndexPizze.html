@@ -17,6 +17,12 @@
 </head>
 <body>
     <div th:replace="~{fragments/NavBar :: navbar}"></div>
+  <div class="container text-center mt-5">
+    <form action="/pizze/search" method="get">
+        <input type="text" name="name" placeholder="Cerca una pizza..." />
+        <button type="submit">Cerca</button>
+    </form> </div>
+
     <div class="container mt-5">
         <h1 class="text-center mb-4">Menu Pizze</h1>
         <div class="row">
@@ -40,6 +46,8 @@
                         <form action="#" th:action="@{pizze/delete/{id}(id=${pizza.id})}" method="post">
                             <button class="btn btn-danger btn-sm" type="submit">Delete</button>
                         </form></div>
+
+
                     </div>
                 </div>
             </div>
