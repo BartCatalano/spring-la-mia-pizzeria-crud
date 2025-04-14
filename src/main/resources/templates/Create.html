@@ -13,6 +13,13 @@
     
     <div class="col-8">
     <form id="PizzaForm" th:action="@{/pizze/create}" method="post" th:object="${pizza}">
+ <div class="mb-3 ps-2" th:if="${#fields.hasErrors()}">
+            <ul class="alert alert-danger">
+                <li th:each="error : ${#fields.allErrors()}" th:text="${error}"/>
+            </ul>
+        </div>   
+
+
         <div class="mb-3">
             <label class="form-label" for="name">Nome Pizza</label>
             <input class="form-control" type="text" id="name" th:field="*{name}">

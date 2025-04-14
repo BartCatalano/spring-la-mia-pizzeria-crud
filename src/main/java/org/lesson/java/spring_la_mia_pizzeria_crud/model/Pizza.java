@@ -21,7 +21,7 @@ public class Pizza {
 
     @NotBlank(message = "inserire il nome della pizza")
     private String name;
-
+    @NotBlank(message = "Inserire almeno un ingrediente")
     private String descrizione;
 
     private String foto;
