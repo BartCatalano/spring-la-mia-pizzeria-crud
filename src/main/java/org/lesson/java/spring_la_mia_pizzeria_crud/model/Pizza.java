@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 // imposto come entity
 @Entity
@@ -25,7 +26,7 @@ public class Pizza {
 
     private String foto;
 
-    @NotBlank(message = "inserire prezzo della pizza")
+    @NotNull(message = "inserire prezzo della pizza")
     private BigDecimal prezzo; 
 
 // creo getter e setter
